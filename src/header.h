@@ -1,7 +1,7 @@
-﻿// CardG.h : Include file for standard system include files,
-// or project specific include files.
-
 #pragma once
+#ifndef HEADER_H_
+#define HEADER_H_
+
 #define SDL_MAIN_HANDLED
 #include <iostream>
 #include <SDL2/SDL.h>
@@ -17,5 +17,4 @@
 #include<set>
 #include <cstdint>
 
-
-// TODO: Reference additional headers your program requires here.
+#endif
