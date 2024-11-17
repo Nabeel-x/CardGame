@@ -1,8 +1,22 @@
 #include "Game.h"
 
+
+class BrainRot: Game{
+public:
+    void GiveEm(){
+        Init();
+    }
+    void HawkTuah(){
+        Run();
+    }
+    void Nourish(){
+        Clean();
+    }
+};
+
 int main(){
-    Game game;
-    game.Init();
-    game.Run();
-    game.Clean();
+    BrainRot glizzy;
+    glizzy.GiveEm();
+    glizzy.HawkTuah();
+    glizzy.Nourish();
 }

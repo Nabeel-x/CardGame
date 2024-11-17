@@ -49,6 +49,9 @@ void Game::Init(){
     m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{200,300,100,30},SDL_COLOR_BLACK,"Join Client",[](){
         std::cout << "Client Button Clicked" << std::endl;
     }));
+    m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{200,350,100,30},SDL_COLOR_BLUE,"Hawk Tuah",[](){
+        std::cout << "Hawk Tuah!!!" << std::endl;
+    }));
 }
 
 
