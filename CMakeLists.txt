@@ -9,7 +9,7 @@ set(SDL2_INCLUDE_DIR "C:/vcpkg/installed/x64-mingw-dynamic/include")
 
 include_directories(${SDL2_INCLUDE_DIR})
 
-add_executable(CardGame src/main.cpp src/Game.cpp src/Button.cpp)
+add_executable(CardGame src/main.cpp src/Game.cpp src/Button.cpp src/Client.cpp src/Server.cpp)
 
 # Link libraries depending on configuration
 target_link_libraries(CardGame PRIVATE

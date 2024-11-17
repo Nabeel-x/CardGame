@@ -40,18 +40,41 @@ void Game::Init(){
     }
     m_IsRunning = true;
     m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{200,200,100,30},SDL_COLOR_BLACK,"Start Server",[](){
-        std::cout << "Server Button Clicked" << std::endl;
+        std::thread([]() {
+            std::cout << "Starting Server..." << std::endl;
+            uint16_t port = 12345;
+            try {
+                Server server(port);
+                server.run();
+            } catch (const std::exception& e) {
+                std::cerr << "Server error: " << e.what() << std::endl;
+            }
+        }).detach();
     }));
     m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{200,250,100,30},SDL_COLOR_RED,"Exit",[this](){
         std::cout << "Exit Button Clicked" << std::endl;
         m_IsRunning = false;
     }));
     m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{200,300,100,30},SDL_COLOR_BLACK,"Join Client",[](){
-        std::cout << "Client Button Clicked" << std::endl;
+         std::thread([]() {
+            std::cout << "Joining Server as Client..." << std::endl;
+            const std::string host = "127.0.0.1";
+            uint16_t port = 12345;
+            try {
+                Client client(host, port);
+                client.run();
+            } catch (const std::exception& e) {
+                std::cerr << "Client error: " << e.what() << std::endl;
+            }
+        }).detach();
     }));
     m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{200,350,100,30},SDL_COLOR_BLUE,"Hawk Tuah",[](){
         std::cout << "Hawk Tuah!!!" << std::endl;
     }));
+    m_Buttons.emplace_back(Button(m_Renderer,m_Font,SDL_Rect{350,350,100,30},SDL_COLOR_BLACK,"Nigga",[](){
+        std::cout << "Eww Stinky" << std::endl;
+    }));
+    
 }
 
 

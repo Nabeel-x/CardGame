@@ -2,6 +2,8 @@
 #define GAME_H_
 #include "header.h"
 #include "Button.h"
+#include "Server.h"
+#include "Client.h"
 
 class Game{
 private:
